@@ -9,19 +9,24 @@ public class Problem72 {
 		Scanner input = new Scanner(System.in);
 		int N = input.nextInt();
 
-		int[] a = new int[N];
-		int[] b = new int[N];
-		int[] c = new int[N];
+		while (N < 1) {
+			N = input.nextInt();
+		}
+		input.nextLine();
+		String[] inputs = new String[N];
 
 		for (int i = 0; i < N; i++) {
-			a[i] = input.nextInt();
-			b[i] = input.nextInt();
-			c[i] = input.nextInt();
+			String temp = input.nextLine();
+			inputs[i] = temp.trim().replaceAll("\\s{2,}", " ");
 		}
 		input.close();
 
 		for (int i = 0; i < N; i++) {
-			area(a[i], b[i], c[i]);
+			String[] tempArray = inputs[i].split("\\s");
+			int a = Integer.parseInt(tempArray[0]);
+			int b = Integer.parseInt(tempArray[1]);
+			int c = Integer.parseInt(tempArray[2]);
+			area(a, b, c);
 		}
 
 	}
